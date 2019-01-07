@@ -1,0 +1,52 @@
+#AuthType Basic
+#AuthName "This site requires a password."
+#AuthUserFile .htpasswd
+#require valid-user 
+
+RewriteEngine On
+RewriteBase /
+
+#RewriteCond %{HTTP_HOST} ^(.*).k12engineering\.net [NC]
+#RewriteRule ^ /index.php [L]
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes +FollowSymLinks
+</IfModule>
+
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^(.*)/$ $1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ /index.php [L]
+
+
+<IfModule mod_rewrite.c>
+
+
+    # Handle Authorization Header
+#    RewriteCond %{HTTP:Authorization} .
+#    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_URI} (.+)/$
+#    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^ /index.php [L]
+
+
+    # Fixing host issues with routes
+#    RewriteRule ^/(.*)$ /index.php/$1 [R=301,L]
+
+</IfModule>

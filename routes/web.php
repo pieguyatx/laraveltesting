@@ -12,7 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tasks = [
+        'Kick back',
+        'Relax',
+        'Being all cool'
+    ];
+
+    return view('welcome', [
+        'tasks' => $tasks,
+        'arbitrary' => request('adjective')  
+        // Looking for variable set in query string ?adjective=asdasda
+    ]);
+
+    // Equivalent to:
+    // return view('welcome')->withTasks($tasks)->withArbitrary(request('adjective'));
+    //  or
+    // return view('welcome')->withTasks([
+    //     'Kick back',
+    //     'Relax',
+    //     'Being all cool'
+    // ]);
 });
 
 

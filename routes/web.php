@@ -11,38 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    $tasks = [
-        'Kick back',
-        'Relax',
-        'Being all cool'
-    ];
+Route::get('/', 'PagesController@home');
 
-    return view('welcome', [
-        'tasks' => $tasks,
-        'arbitrary' => request('adjective')  
-        // Looking for variable set in query string ?adjective=asdasda
-    ]);
+Route::get('/about', 'PagesController@about');
 
-    // Equivalent to:
-    // return view('welcome')->withTasks($tasks)->withArbitrary(request('adjective'));
-    //  or
-    // return view('welcome')->withTasks([
-    //     'Kick back',
-    //     'Relax',
-    //     'Being all cool'
-    // ]);
-});
-
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/contact/index.php', function () {
-    return view('contact');
-});
-
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/contact', 'PagesController@contact');

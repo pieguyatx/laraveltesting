@@ -97,6 +97,9 @@
                         <li>
                             <a href="/about">About</a> us and all our shenanigans.
                         </li>
+                        <li>
+                            <a href="/projects">Projects</a> listed by title.
+                        </li>
                     </ul>
                 </div>
 

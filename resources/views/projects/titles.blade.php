@@ -21,7 +21,7 @@
     <h2>IDs:</h2>
     <ul>
         @foreach($projects as $project)
-            <li>{{$project->id}}</li>
+            <li>{{$project->episode_id}}</li>
         @endforeach
     </ul>
     <hr>

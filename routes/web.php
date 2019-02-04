@@ -19,10 +19,37 @@ Route::get('/contact', 'PagesController@contact');
 
 // testing new controller
 
-Route::get('/titles', 'ProjectsController@titles');
+// common conventions: GET request to "/endpoint controller@index" endpoint for starting page
+//                     GET /projects (index)
+//                      POST request to "/endpoint controller@store" endpoint for storing new data
+//                      GET /projects (store)
+//                      GET request to "/endpoint/create controller@create" endpoint for adding data 
+//                      GET /projects/create (create)
+//                      GET /projects/1 (show)
+//                      GET /projects/1/edit (edit)
+//          PUT --> updating resource
+//          PATCH   --> updating resource; can just use this instead of PUT for now
+//                        PATCH /projects/1 (update)
+//          DELETE   --> /projects/1 (destroy)
 
-Route::get('/projects', 'ProjectsController@projects');
+Route::get('/titles', 'ProjectsController@titles');  // test endpoint
 
-Route::post('/projects', 'ProjectsController@store'); // standard naming convention for storing new resources
 
-Route::get('/projects/create', 'ProjectsController@create');
+// tutorial endpoints below
+// php artisan route:list in terminal will list all registered routes
+
+// Route::get('/projects', 'ProjectsController@projects');   // typically should be @index
+
+// Route::get('/projects/create', 'ProjectsController@create');
+
+// Route::post('/projects', 'ProjectsController@store'); // standard naming convention for storing new resources
+
+// Route::get('/projects/{project}', 'ProjectsController@show');
+
+// Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+
+// Route::patch('/projects/{project}', 'ProjectsController@patch');
+
+// Route::delete('/projects/{project}', 'ProjectsController@destroy');
+
+Route::resource('projects','ProjectsController');  // shortcut for everything above

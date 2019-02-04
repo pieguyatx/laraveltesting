@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 class ProjectsController extends Controller
 {
 
-    public function projects() 
+// php artisan make:controller PostsController -r  
+//              ---> in terminal can make controller w/ standard RESTful convention
+// php artisan make:controller PostsController -r -m [modelname]  
+//              ---> in terminal can make controller w/ standard RESTful convention
+//                   that also references a particular model for the EDIT/PATCH/etc functions
+
+    public function index() 
     {
         $projects = Project::all();
 
@@ -38,6 +44,29 @@ class ProjectsController extends Controller
         // reload projects list (fetch it again)
         return redirect('/projects'); // default as GET request
     }
+
+    public function show() 
+    {
+
+    }
+
+
+    public function edit() 
+    {
+
+    }
+
+    public function update() 
+    {
+
+    }
+
+
+    public function destroy() 
+    {
+
+    }
+
 
     public function titles() 
     {

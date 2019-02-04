@@ -98,8 +98,12 @@
                             <a href="/about">About</a> us and all our shenanigans.
                         </li>
                         <li>
-                            <a href="/projects">Projects</a> listed by title.
+                            <a href="/titles">Titles</a> listed out w/ other info.
                         </li>
+                        <li>
+                            <a href="/projects">Projects</a>: a tutorial test page.
+                        </li>
+
                     </ul>
                 </div>
 

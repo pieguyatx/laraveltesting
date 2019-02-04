@@ -19,4 +19,5 @@ Route::get('/contact', 'PagesController@contact');
 
 // testing new controller
 
-Route::get('/projects', 'ProjectsController@titles');
+Route::get('/titles', 'ProjectsController@titles');
+Route::get('/projects', 'ProjectsController@projects');

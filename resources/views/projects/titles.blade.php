@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title','Projects: Titles')
+@section('title','Projects: Titles and more...')
 
 @section('content')
     <h1>
@@ -18,12 +18,21 @@
     </ul>
     <hr>
 
-    <h2>IDs:</h2>
+    <h2>Episode IDs:</h2>
     <ul>
         @foreach($projects as $project)
             <li>{{$project->episode_id}}</li>
         @endforeach
     </ul>
+
+    <h2>Guests:</h2>
+    <ul>
+        @foreach($guests as $guest)
+            <li>{{$guest->firstname}}</li>
+        @endforeach
+    </ul>
+
+
     <hr>
 
 @endsection

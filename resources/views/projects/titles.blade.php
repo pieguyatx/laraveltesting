@@ -1,13 +1,13 @@
 @extends('layout')
 
-@section('title','Projects: Titles and more...')
+@section('title','Episodes: Titles and more...')
 
 @section('content')
     <h1>
-        Projects, by Title
+        Episodes, by Title
     </h1>
     <p>
-        Projects from the database are listed below.
+        Episodes from the database are listed below.
     </p>
 
     <h2>Titles:</h2>
@@ -20,8 +20,8 @@
 
     <h2>Episode IDs:</h2>
     <ul>
-        @foreach($projects as $project)
-            <li>{{$project->episode_id}}</li>
+        @foreach($episodes as $episode)
+            <li>{{$episode->episode_id}}</li>
         @endforeach
     </ul>
 

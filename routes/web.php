@@ -20,4 +20,9 @@ Route::get('/contact', 'PagesController@contact');
 // testing new controller
 
 Route::get('/titles', 'ProjectsController@titles');
+
 Route::get('/projects', 'ProjectsController@projects');
+
+Route::post('/projects', 'ProjectsController@store'); // standard naming convention for storing new resources
+
+Route::get('/projects/create', 'ProjectsController@create');

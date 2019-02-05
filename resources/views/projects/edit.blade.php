@@ -19,9 +19,7 @@
         <div class="field">
             <label class="label" for="description">Description</label>
             <div class="control">
-                <textarea name="description" placeholder="" class="textarea" style="min-width:50%;height:4em">
-                    {{ $project->description }}
-                </textarea>
+                <textarea name="description" placeholder="" class="textarea" style="min-width:50%;height:4em">{{ $project->description }}</textarea>
             </div>
         </div>
 
@@ -30,6 +28,24 @@
                 <button type="submit" class="button is-link">
                     Update Project
                </button>
+            </div>
+        </div>
+
+    </form>
+
+    <br/><br/>
+
+    <form method="POST" action="/projects/{{ $project->id }}">
+
+        {{ method_field('DELETE') }}
+
+        {{ csrf_field() }}
+
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link" style="color:red">
+                    Delete Project
+                </button>
             </div>
         </div>
 

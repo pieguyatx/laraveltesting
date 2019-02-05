@@ -26,8 +26,7 @@
         </div>
 
         <div>
-            <textarea name="description" placeholder="Project description">
-            </textarea>
+            <textarea name="description" placeholder="Project description"></textarea>
         </div>
  
         <div>

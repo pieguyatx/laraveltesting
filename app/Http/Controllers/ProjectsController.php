@@ -61,14 +61,26 @@ class ProjectsController extends Controller
 
     }
 
-    public function update() 
+    public function update($id) 
     {
-        dd('hello!'); // debugging function that outputs messages (die and dump)
+        // dd( request()->all() ); // debugging function that outputs messages (die and dump)
+        $project = Project::find($id);
+
+        $project->title = request('title');
+        $project->description = request('description');
+        $project->save();
+
+        return redirect('/projects');
+
     }
 
 
-    public function destroy() 
+    public function destroy($id) 
     {
+
+        $project = Project::find($id);
+        $project->delete();
+        return redirect('/projects');
 
     }
 

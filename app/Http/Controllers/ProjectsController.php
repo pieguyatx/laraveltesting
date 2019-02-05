@@ -19,7 +19,8 @@ class ProjectsController extends Controller
     {
         $projects = Project::all();
 
-        return view('projects.projects', compact('projects'));
+        return view('projects.projects', compact('projects')); // could've been called index.blade.php 
+            // ...to follow standard 'resourceful' naming conventions
     }
 
     public function create() 
@@ -51,14 +52,18 @@ class ProjectsController extends Controller
     }
 
 
-    public function edit() 
+    public function edit($id) 
     {
+
+        $project = Project::find($id);
+
+        return view('projects.edit', compact('project'));
 
     }
 
     public function update() 
     {
-
+        dd('hello!'); // debugging function that outputs messages (die and dump)
     }
 
 

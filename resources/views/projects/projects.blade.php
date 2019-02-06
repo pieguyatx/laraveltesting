@@ -19,7 +19,11 @@
     <h2>Episode Titles:</h2>
     <ul>
         @foreach($projects as $project)
-            <li>{{$project->title}}</li>
+            <li>
+                <a href="/projects/{{$project->id}}">
+                    {{$project->title}}
+                </a>
+            </li>
         @endforeach
     </ul>
 

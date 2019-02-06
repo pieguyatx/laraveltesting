@@ -46,9 +46,10 @@ class ProjectsController extends Controller
         return redirect('/projects'); // default as GET request
     }
 
-    public function show() 
+    public function show($id) 
     {
-
+        $project = Project::findOrFail($id);
+        return view('projects.show', compact('project'));
     }
 
 

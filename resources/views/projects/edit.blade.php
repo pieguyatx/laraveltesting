@@ -5,10 +5,7 @@
 
     <form method="POST" action="/projects/{{ $project->id }}">
 
-        {{-- {{ method_field('PATCH') }} --}}
         @method('PATCH')
-
-        {{-- {{ csrf_field() }} --}}
         @csrf
 
         <div class="field">
@@ -39,9 +36,7 @@
 
     <form method="POST" action="/projects/{{ $project->id }}">
 
-        {{-- {{ method_field('DELETE') }} --}}
         @method('DELETE')
-        {{-- {{ csrf_field() }} --}}
         @csrf
 
         <div class="field">

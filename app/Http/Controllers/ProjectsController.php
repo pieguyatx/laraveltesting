@@ -32,6 +32,12 @@ class ProjectsController extends Controller
     {
         // return request()->all(); // debug: outputs all data
 
+        // validate data; if errors detected, refresh the page with error inputs
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         // Create a new row/entry in database
         // Accept data
         // Persist it

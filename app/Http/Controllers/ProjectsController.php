@@ -33,7 +33,7 @@ class ProjectsController extends Controller
         // return request()->all(); // debug: outputs all data
 
         // validate data; if errors detected, refresh the page with error inputs
-        request()->validate([
+        $attributes = request()->validate([
             'title' => ['required','min:3','max:255'],
             'description' => ['required','min:5','max:10000']
         ]);
@@ -41,7 +41,7 @@ class ProjectsController extends Controller
         // Create a new row/entry in database
         // Accept data
         // Persist it
-        Project::create(request(['title','description']));
+        Project::create($attributes);
 
         // Important security tip! Don't do Project::create(request()->all()), which accepts anything coming in
         // Be specific about what elements you accept/modify

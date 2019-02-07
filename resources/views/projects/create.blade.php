@@ -22,11 +22,13 @@
         @csrf
 
         <div class="control">
-            <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title" placeholder="Project title" required>
+            <label>Project Title</label>
+            <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title"  required value="{{ old('title') }}">
         </div>
 
         <div class="field">
-            <textarea class="control  {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="Project description" required></textarea>
+            <label>Project Description</label>
+            <textarea class="control  {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" required>{{ old('description') }}</textarea>
         </div>
  
         <div>

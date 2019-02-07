@@ -60,9 +60,8 @@ class ProjectsController extends Controller
     {
         // dd( request()->all() ); // debugging function that outputs messages (die and dump)
 
-        $project->title = request('title');
-        $project->description = request('description');
-        $project->save();
+        // Set the desired attributes and persist it
+        $project->update(request(['title','description']));
 
         return redirect('/projects');
 

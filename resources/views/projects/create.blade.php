@@ -21,12 +21,12 @@
         {{-- Security feature using middleware 'VerifyCsrfToken' --}}
         @csrf
 
-        <div>
-            <input type="text" name="title" placeholder="Project title" required>
+        <div class="control">
+            <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title" placeholder="Project title" required>
         </div>
 
-        <div>
-            <textarea name="description" placeholder="Project description" required></textarea>
+        <div class="field">
+            <textarea class="control  {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="Project description" required></textarea>
         </div>
  
         <div>

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
+@extends('projects\layout')
 
-<html>
-
-<head>
-    <title></title>
-</head>
-
-
-<body>
-
+@section('content')
     <h1>
         Projects: A Laravel tutorial test page
     </h1>
@@ -26,7 +18,4 @@
             </li>
         @endforeach
     </ul>
-
-</body>
-
-</html>
+@endsection

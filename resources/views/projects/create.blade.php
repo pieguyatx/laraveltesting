@@ -1,13 +1,6 @@
-<!DOCTYPE html>
+@extends('projects\layout')
 
-<html>
-
-<head>
-    <title></title>
-</head>
-
-
-<body>
+@section('content')
 
     <h1>
         Create a New Project
@@ -49,15 +42,4 @@
 
     </form>
 
-    <hr>
-
-    <div>
-        <ul>
-            <li>See the <a href="/projects">full list of projects</a>.</li>
-            <li>Go back <a href="/">home</a>.</li>
-        </ul>
-    </div>
-
-</body>
-
-</html>
+@endsection

@@ -55,5 +55,5 @@ Route::get('/titles', 'ProjectsController@titles');  // test endpoint
 // "Register a 'projects' resource" with the following:
 Route::resource('projects','ProjectsController');  // shortcut for everything above
 
-
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');

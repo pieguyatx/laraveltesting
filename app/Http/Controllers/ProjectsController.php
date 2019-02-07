@@ -33,15 +33,13 @@ class ProjectsController extends Controller
         // return request()->all(); // debug: outputs all data
 
         // Create a new row/entry in database
-        $project = new Project();
-
         // Accept data
-        $project->title = request('title');
-        $project->description = request('description');
-
         // Persist it
-        $project->save();
-
+        Project::create([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+        
         // reload projects list (fetch it again)
         return redirect('/projects'); // default as GET request
     }

@@ -48,8 +48,9 @@ Route::get('/titles', 'ProjectsController@titles');  // test endpoint
 
 // Route::get('/projects/{project}/edit', 'ProjectsController@edit');
 
-// Route::patch('/projects/{project}', 'ProjectsController@patch');
+// Route::patch('/projects/{project}', 'ProjectsController@update');
 
 // Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
+// "Register a 'projects' resource" with the following:
 Route::resource('projects','ProjectsController');  // shortcut for everything above

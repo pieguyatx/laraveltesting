@@ -17,4 +17,11 @@ class Project extends Model
     // Here's another way to do it: Say nothing is 'guarded' from being mass-assigned
     protected $guarded = [];
 
+    // Define relationship to another table in the database
+    public function tasks()
+    {
+        // A project has many tasks...
+        return $this->hasMany(Task::class);
+    }
+
 }

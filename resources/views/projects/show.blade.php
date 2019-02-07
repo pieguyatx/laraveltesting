@@ -11,6 +11,15 @@
         </p>
     </div>
 
+    @if ($project->tasks->count())
+        <div class="tasks">
+            <h2>Tasks:</h2>
+            @foreach ($project->tasks as $task)
+                <li>{{ $task->description }}</li>
+            @endforeach
+        </div>
+    @endif
+
     <hr>
 
     <div class="controls">

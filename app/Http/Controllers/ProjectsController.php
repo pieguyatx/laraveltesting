@@ -35,11 +35,12 @@ class ProjectsController extends Controller
         // Create a new row/entry in database
         // Accept data
         // Persist it
-        Project::create([
-            'title' => request('title'),
-            'description' => request('description')
-        ]);
-        
+        Project::create(request(['title','description']));
+
+        // Important security tip! Don't do Project::create(request()->all()), which accepts anything coming in
+        // Be specific about what elements you accept/modify
+        // You can be extra-safe by specificing what is fillable in the Model php file
+
         // reload projects list (fetch it again)
         return redirect('/projects'); // default as GET request
     }

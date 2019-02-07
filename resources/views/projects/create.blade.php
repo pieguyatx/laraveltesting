@@ -19,14 +19,14 @@
     <form method="POST" action="/projects">
 
         {{-- Security feature using middleware 'VerifyCsrfToken' --}}
-        {{ csrf_field() }}
+        @csrf
 
         <div>
-            <input type="text" name="title" placeholder="Project title">
+            <input type="text" name="title" placeholder="Project title" required>
         </div>
 
         <div>
-            <textarea name="description" placeholder="Project description"></textarea>
+            <textarea name="description" placeholder="Project description" required></textarea>
         </div>
  
         <div>

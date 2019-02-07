@@ -34,8 +34,8 @@ class ProjectsController extends Controller
 
         // validate data; if errors detected, refresh the page with error inputs
         request()->validate([
-            'title' => 'required',
-            'description' => 'required'
+            'title' => ['required','min:3','max:255'],
+            'description' => ['required','min:5','max:10000']
         ]);
 
         // Create a new row/entry in database

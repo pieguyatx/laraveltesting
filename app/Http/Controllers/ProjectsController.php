@@ -27,8 +27,8 @@ class ProjectsController extends Controller
     public function index() 
     {
         // $projects = Project::all();  // usually don't ever want to get ALL of the data...
-        // auth()-id() // gives null if guest, number if user
-        // auth()-user() // user
+        // auth()->id() // gives null if guest, number if user
+        // auth()->user() // user
         // auth()->check() // boolean checks if user is signed in (true)
         // auth()->guest() // is it a guest
         $projects = Project::where('owner_id', auth()->id())->get();
@@ -87,6 +87,8 @@ class ProjectsController extends Controller
 
     public function edit(Project $project) 
     {
+        $this->authorize('update', $project);
+
         return view('projects.edit', compact('project'));
     }
 
@@ -111,6 +113,7 @@ class ProjectsController extends Controller
 
     public function destroy(Project $project) 
     {
+        $this->authorize('update', $project);
 
         $project->delete();
         return redirect('/projects');

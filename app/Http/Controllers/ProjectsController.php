@@ -69,11 +69,18 @@ class ProjectsController extends Controller
 
     public function show(Project $project) 
     {
-        // How to handle authentication here?
+        // ****How to handle authentication here?
         // abort_if($project->owner_id !== auth()->id(), 403);  // access denied
         // abort_unless(auth()->user()->owns($project), 403); // more object-oriented approach
-        // or:  php artisan make:policy ProjectPolicy --model=Project
-        $this->authorize('update', $project);
+        //          or:  php artisan make:policy ProjectPolicy --model=Project
+        // $this->authorize('update', $project);
+        //     <---- use that code to allow users to access the function
+        // OR create Project Policy and add this to deny/allow user access:
+        // if (\Gate::denies('update',$project)){abort(403);}
+        // abort_if( \Gate::denies('update', $project), 403 );
+        // abort_if( \Gate::denies('update', $project), 403 );
+        abort_unless( \Gate::allows('update', $project), 403 );
+        
         return view('projects.show', compact('project'));
     }
 

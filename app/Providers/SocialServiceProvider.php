@@ -26,8 +26,7 @@ class SocialServiceProvider extends ServiceProvider
     {
         // Register the Twitter api key into Laravel service container
         $this->app->singleton(Twitter::class, function(){
-            return new Twitter('api-key-goes-here-through-config');
-            // return new Twitter(config('services.twitter.key'));
+            return new Twitter(config('services.twitter.secret'));
         });
     }
 }

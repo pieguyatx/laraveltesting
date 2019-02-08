@@ -15,8 +15,8 @@ use App\Repositories\UserRepository;
 */
 
 // Route::get('/', 'PagesController@home');
-Route::get('/', function (UserRepository $users) {
-    dd($users);
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
     return view('welcome');
 });
 

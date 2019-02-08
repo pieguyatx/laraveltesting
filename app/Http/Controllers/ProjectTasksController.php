@@ -28,11 +28,15 @@ class ProjectTasksController extends Controller
     // Update the 'completed' attribute of the Task
     public function update(Task $task)     // Use 'route model binding' to fetch the associated object
     {
-        $task->update([
-            // save the new completed attribute as whether or not 'completed' exists 
-            // in the requested attribute list
-            'completed' => request()->has('completed')
-        ]);
+        // request()->has('completed') ? $task->complete() : $task->incomplete();
+        $method = request()->has('completed') ? 'complete' : 'incomplete' ;
+        $task -> $method(); //dynamic function call
+
+        // $task->update([
+        //     // save the new completed attribute as whether or not 'completed' exists 
+        //     // in the requested attribute list
+        //     'completed' => request()->has('completed')
+        // ]);
 
         return back();
     }

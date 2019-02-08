@@ -8,7 +8,7 @@
         Project info from the database is listed below.
     </p>
 
-    <h2>Episode Titles:</h2>
+    <h2 class="title">Episode Titles:</h2>
     <ul>
         @foreach($projects as $project)
             <li>
@@ -18,4 +18,13 @@
             </li>
         @endforeach
     </ul>
+
+    {{-- Conditionally show this if user is authorized according to ProjectPolicy --}}
+    @can('update', $project) 
+        <br/><br/>
+        <pre>
+            Yes, we can [change things here because you're authorized]!
+        </pre>
+    @endcan
+
 @endsection

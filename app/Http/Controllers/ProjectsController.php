@@ -69,8 +69,11 @@ class ProjectsController extends Controller
 
     public function show(Project $project) 
     {
-        abort_if($project->owner_id !== auth()->id(), 403);  // access denied
-
+        // How to handle authentication here?
+        // abort_if($project->owner_id !== auth()->id(), 403);  // access denied
+        // abort_unless(auth()->user()->owns($project), 403); // more object-oriented approach
+        // or:  php artisan make:policy ProjectPolicy --model=Project
+        $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 

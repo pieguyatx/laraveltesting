@@ -11,14 +11,14 @@
         <div class="field">
             <label class="label" for="title">Title</label>
             <div class="control">
-                <input type="text" class="input" name="title" placeholder="Title" value="{{ $project->title }}" required>
+                <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title" placeholder="Title" value="{{ $project->title }}" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label" for="description">Description</label>
             <div class="control">
-                <textarea name="description" placeholder="" class="textarea" style="min-width:50%;height:4em" required>{{ $project->description }}</textarea>
+                <textarea name="description" placeholder="" class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}" style="min-width:50%;height:4em" required>{{ $project->description }}</textarea>
             </div>
         </div>
 
@@ -29,6 +29,8 @@
                </button>
             </div>
         </div>
+
+        @include( 'errors' )
 
     </form>
 

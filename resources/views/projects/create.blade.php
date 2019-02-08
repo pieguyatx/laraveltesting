@@ -21,7 +21,7 @@
 
         <div class="field">
             <label>Project Description</label>
-            <textarea class="control  {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" required>{{ old('description') }}</textarea>
+            <textarea class="control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" required>{{ old('description') }}</textarea>
         </div>
  
         <div>

@@ -94,8 +94,15 @@ class ProjectsController extends Controller
     {
         // dd( request()->all() ); // debugging function that outputs messages (die and dump)
 
+        $this->authorize('update', $project);
+
+        $attributes = request()->validate([
+            'title' => ['required','min:3','max:255'],
+            'description' => ['required','min:5','max:10000']
+        ]);
+
         // Set the desired attributes and persist it
-        $project->update(request(['title','description']));
+        $project->update($attributes);
 
         return redirect('/projects');
 

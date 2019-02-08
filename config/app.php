@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\SocialServiceProvider::class,
+        // May have to run this in shell to register properly:  php artisan optimize:clear
 
     ],
 

@@ -64,6 +64,12 @@ Route::resource('projects','ProjectsController');  // shortcut for everything ab
 
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
+
+
+// Manage authentication (will use auth middleware)
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/signup', 'HomeController@index')->name('home')->middleware('auth'); // only signed in can see
+// Route::get('/signup', 'HomeController@index')->name('home')->middleware('guest'); // only guests can see

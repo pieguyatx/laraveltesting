@@ -15,9 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');  // autoincrementing
+            $table->unsignedInteger('owner_id');
             $table->string('title');
             $table->text('description');
             $table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');  //references the users table in another migration ;; cascade deletes all projects upon delete
         });
     }
 

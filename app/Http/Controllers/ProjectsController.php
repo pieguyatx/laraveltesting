@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 class ProjectsController extends Controller
 {
 
+    // Require authentication
+    public function __construct() 
+    {
+        $this->middleware('auth');  // for any function in this controller
+        // $this->middleware('auth')->only(['store','update']);  // for specific functions
+        // $this->middleware('auth')->exfept(['show']);  // except specific functions
+    } 
+
+
 // php artisan make:controller PostsController -r  
 //              ---> in terminal can make controller w/ standard RESTful convention
 // php artisan make:controller PostsController -r -m [modelname]  
@@ -17,7 +26,12 @@ class ProjectsController extends Controller
 
     public function index() 
     {
-        $projects = Project::all();
+        // $projects = Project::all();  // usually don't ever want to get ALL of the data...
+        // auth()-id() // gives null if guest, number if user
+        // auth()-user() // user
+        // auth()->check() // boolean checks if user is signed in (true)
+        // auth()->guest() // is it a guest
+        $projects = Project::where('owner_id', auth()->id())->get();
 
         return view('projects.projects', compact('projects')); // could've been called index.blade.php 
             // ...to follow standard 'resourceful' naming conventions
@@ -37,6 +51,8 @@ class ProjectsController extends Controller
             'title' => ['required','min:3','max:255'],
             'description' => ['required','min:5','max:10000']
         ]);
+
+        $attributes['owner_id'] = auth()->id();
 
         // Create a new row/entry in database
         // Accept data

@@ -1,7 +1,7 @@
 @extends('projects\layout')
 
 @section('content')
-    <h1>
+    <h1 class="title">
         Projects: A Laravel tutorial test page
     </h1>
     <p>
